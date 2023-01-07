@@ -203,9 +203,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, getResources().getString(R.string.tips_turn_on_gps), Toast.LENGTH_LONG).show();
             return;
         }
+
+        String[] permissions;
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
+            permissions = new String[]{
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION};
+        }else {
+            permissions = new String[]{
+                    Manifest.permission.BLUETOOTH,
+                    Manifest.permission.BLUETOOTH_SCAN,
+                    Manifest.permission.BLUETOOTH_CONNECT};
+        }
+
         EasyPermissions
                 .with(this)
-                .request(Manifest.permission.ACCESS_FINE_LOCATION)
+                .request(permissions)
                 .autoRetryWhenUserRefuse(true, null)
                 .result(new RequestExecutor.ResultReceiver() {
                     @Override

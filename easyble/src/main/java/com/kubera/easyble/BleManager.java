@@ -121,12 +121,12 @@ public final class BleManager {
         if (callback == null) {
             throw new IllegalArgumentException("BleScanCallback is null");
         }
-        if (!isScanPermissionGranted(mContext)) {
-            String permission = Build.VERSION.SDK_INT > Build.VERSION_CODES.P ? "location(ACCESS_FINE_LOCATION)" :
-                    "location(ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION)";
-            callback.onStart(false, "You must grant " + permission + " permission before scanning");
-            return;
-        }
+//        if (!isScanPermissionGranted(mContext)) {
+//            String permission = Build.VERSION.SDK_INT > Build.VERSION_CODES.P ? "location(ACCESS_FINE_LOCATION)" :
+//                    "location(ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION)";
+//            callback.onStart(false, "You must grant " + permission + " permission before scanning");
+//            return;
+//        }
         if (options == null) {
             options = ScanOptions.newInstance();
         }
