@@ -1,5 +1,6 @@
 package com.kubera.scanner.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import android.util.Log;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.kubera.scanner.MapsActivity;
 import com.kubera.scanner.utils.FragmentCommunicator;
 import com.kubera.scanner.HomeScreen;
 import com.kubera.scanner.utils.KdGaugeView;
@@ -82,7 +84,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.map){
-
+                startActivity(new Intent(getActivity(), MapsActivity.class));
         }
     }
 }

@@ -231,6 +231,12 @@ public class OperateActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
     private BleConnectCallback connectCallback = new BleConnectCallback() {
         @Override
         public void onStart(boolean startConnectSuccess, String info, BleDevice device) {
