@@ -1,7 +1,7 @@
 package com.kubera.scanner.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.SparseArray;
 import android.widget.TextView;
 

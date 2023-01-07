@@ -19,7 +19,7 @@ package com.kubera.scanner.percentageview.annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import static com.kubera.scanner.percentageview.renderer.BaseModeRenderer.GRADIENT_LINEAR;
 import static com.kubera.scanner.percentageview.renderer.BaseModeRenderer.GRADIENT_RADIAL;

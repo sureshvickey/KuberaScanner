@@ -22,7 +22,7 @@ import static com.kubera.scanner.percentageview.renderer.BaseModeRenderer.MODE_F
 import static com.kubera.scanner.percentageview.renderer.BaseModeRenderer.MODE_PIE;
 import static com.kubera.scanner.percentageview.renderer.BaseModeRenderer.MODE_RING;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 @Retention(RetentionPolicy.SOURCE)
 @IntDef({MODE_PIE, MODE_RING, MODE_FILL})

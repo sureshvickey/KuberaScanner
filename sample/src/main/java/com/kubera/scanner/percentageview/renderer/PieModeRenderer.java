@@ -26,7 +26,7 @@ import android.graphics.RadialGradient;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.SweepGradient;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.kubera.scanner.percentageview.IPercentageChartView;
 import com.kubera.scanner.percentageview.callback.AdaptiveColorProvider;

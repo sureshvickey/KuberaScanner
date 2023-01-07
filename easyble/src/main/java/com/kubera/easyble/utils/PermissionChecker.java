@@ -13,7 +13,7 @@ import static android.os.Build.VERSION.SDK_INT;
  * such is defined.
  * <p>
  * This PermissionChecker contents copy from
- * {@link android.support.v4.content.PermissionChecker}, because I
+ * {@link androidx.core.content.PermissionChecker}, because I
  * just don't wanna import support-package or androidx
  */
 public class PermissionChecker {

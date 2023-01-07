@@ -21,7 +21,7 @@ import android.graphics.Typeface;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 @Retention(RetentionPolicy.SOURCE)
 @IntDef({Typeface.NORMAL,  Typeface.BOLD, Typeface.ITALIC, Typeface.BOLD_ITALIC})

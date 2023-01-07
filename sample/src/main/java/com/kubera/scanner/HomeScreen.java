@@ -1,7 +1,7 @@
 package com.kubera.scanner;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 
 import androidx.navigation.NavController;
@@ -13,8 +13,8 @@ import com.kubera.easyble.BleManager;
 import com.kubera.easyble.Logger;
 import com.kubera.easyble.gatt.callback.BleConnectCallback;
 import com.kubera.easyble.gatt.callback.BleNotifyCallback;
-import com.kubera.scanner.R;
 import com.kubera.scanner.databinding.ActivityHomeScreenBinding;
+import com.kubera.scanner.utils.FragmentCommunicator;
 
 
 public class HomeScreen extends AppCompatActivity {

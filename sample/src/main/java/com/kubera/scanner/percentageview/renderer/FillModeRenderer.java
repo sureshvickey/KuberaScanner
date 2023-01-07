@@ -23,7 +23,7 @@ import android.graphics.Matrix;
 import android.graphics.RadialGradient;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 
 import com.kubera.scanner.percentageview.IPercentageChartView;
