@@ -1,7 +1,10 @@
 package com.kubera.scanner;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.navigation.NavController;
@@ -11,10 +14,19 @@ import androidx.navigation.ui.NavigationUI;
 import com.kubera.easyble.BleDevice;
 import com.kubera.easyble.BleManager;
 import com.kubera.easyble.Logger;
+import com.kubera.easyble.gatt.bean.CharacteristicInfo;
+import com.kubera.easyble.gatt.bean.ServiceInfo;
 import com.kubera.easyble.gatt.callback.BleConnectCallback;
 import com.kubera.easyble.gatt.callback.BleNotifyCallback;
+import com.kubera.easyble.gatt.callback.BleReadCallback;
 import com.kubera.scanner.databinding.ActivityHomeScreenBinding;
 import com.kubera.scanner.utils.FragmentCommunicator;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class HomeScreen extends AppCompatActivity {
@@ -59,7 +71,23 @@ public class HomeScreen extends AppCompatActivity {
 
         @Override
         public void onConnected(BleDevice device) {
-            BleManager.getInstance().notify(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", notifyCallback);
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    new Timer().scheduleAtFixedRate(new TimerTask() {
+                        @Override
+                        public void run() {
+                            //BleManager.getInstance().read(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", readCallback);
+                            BleManager.getInstance().read(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "00000000-0000-1000-8000-00805f9b34fb", readCallback);
+                        }
+                    }, 0, 500);
+
+                }
+            });
+
+            //Map<ServiceInfo, List<CharacteristicInfo>> bleDevices = BleManager.getInstance().getDeviceServices(device);
+
+
         }
 
         @Override
@@ -74,6 +102,20 @@ public class HomeScreen extends AppCompatActivity {
             Toast.makeText(HomeScreen.this,
                     getResources().getString(failCode == BleConnectCallback.FAIL_CONNECT_TIMEOUT ?
                             R.string.tips_connect_timeout : R.string.tips_connect_fail), Toast.LENGTH_LONG).show();
+        }
+    };
+
+
+    private BleReadCallback readCallback = new BleReadCallback() {
+        @Override
+        public void onReadSuccess(byte[] data, BleDevice device) {
+            Log.i("onCharacteristicChanged" , Arrays.toString(data) );
+          //  fragmentCommunicator.passData(new String(data));
+        }
+
+        @Override
+        public void onFailure(int failCode, String info, BleDevice device) {
+
         }
     };
 
