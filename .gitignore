@@ -7,3 +7,6 @@
 /build
 /captures
 .externalNativeBuild
+sample/release/sample-release.apk
+sample/release/sample-release.aab
+sample/release/sample-release.aab
