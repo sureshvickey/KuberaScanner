@@ -4,5 +4,9 @@
   "speed": 0,
   "driveMode": 0,
   "packCurrent": 0.0,
-  "packVoltage": 62.3
+  "packVoltage": 62.3,
+  "0": "Low Speed",
+  "1": "medium Speed",
+  "2": "high Speed",
+  "4": "reverse"
 }

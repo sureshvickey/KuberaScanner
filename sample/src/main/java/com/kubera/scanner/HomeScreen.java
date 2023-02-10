@@ -80,7 +80,7 @@ public class HomeScreen extends AppCompatActivity {
                             //BleManager.getInstance().read(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", readCallback);
                             BleManager.getInstance().read(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "00000000-0000-1000-8000-00805f9b34fb", readCallback);
                         }
-                    }, 0, 500);
+                    }, 0, 3000);
 
                 }
             });
@@ -110,7 +110,7 @@ public class HomeScreen extends AppCompatActivity {
         @Override
         public void onReadSuccess(byte[] data, BleDevice device) {
             Log.i("onCharacteristicChanged" , Arrays.toString(data) );
-          //  fragmentCommunicator.passData(new String(data));
+            fragmentCommunicator.passData(new String(data));
         }
 
         @Override

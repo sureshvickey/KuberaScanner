@@ -1,12 +1,14 @@
 package com.kubera.scanner.ui.home;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -29,6 +31,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private KdGaugeView kdGaugeView;
     private PercentageChartView percentageChartView;
     private TextView voltage,current;
+    private ImageView modeImage;
     private CardView map;
     int i=0;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -46,8 +49,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         voltage = root.findViewById(R.id.voltage);
         current = root.findViewById(R.id.current);
         map = root.findViewById(R.id.map);
+        modeImage = root.findViewById(R.id.modeImage);
         map.setOnClickListener(this);
-
+        modeImage.setBackgroundResource(R.drawable.eco);
 
         ((HomeScreen) getActivity()).passVal(new FragmentCommunicator() {
             @Override
@@ -65,6 +69,22 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     percentageChartView.setProgress(Float.parseFloat(SOC),true);
                     voltage.setText(voltageStr);
                     current.setText(currentStr);
+                    String driveMode = obj.getString("driveMode");
+                    if(driveMode.equals("0")){
+                        modeImage.setBackgroundResource(R.drawable.eco);
+                    }else if(driveMode.equals("1")){
+                        modeImage.setBackgroundResource(R.drawable.power);
+                    }else if(driveMode.equals("2")){
+                        modeImage.setBackgroundResource(R.drawable.quick);
+                    }else if(driveMode.equals("4")){
+                        modeImage.setBackgroundResource(R.drawable.rewind);
+                    }else if(driveMode.equals("8")){
+                        modeImage.setBackgroundResource(R.drawable.parking);
+                    }else if(driveMode.equals("16")){
+                        modeImage.setBackgroundResource(R.drawable.brake);
+                    }else {
+                        modeImage.setBackgroundResource(R.drawable.eco);
+                    }
                     Log.d("My App", obj.toString());
                 } catch (Throwable t) {
                     Log.e("My App", "Could not parse malformed JSON:");
