@@ -71,19 +71,20 @@ public class HomeScreen extends AppCompatActivity {
 
         @Override
         public void onConnected(BleDevice device) {
-            AsyncTask.execute(new Runnable() {
-                @Override
-                public void run() {
-                    new Timer().scheduleAtFixedRate(new TimerTask() {
-                        @Override
-                        public void run() {
-                            //BleManager.getInstance().read(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", readCallback);
-                            BleManager.getInstance().read(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "00000000-0000-1000-8000-00805f9b34fb", readCallback);
-                        }
-                    }, 0, 3000);
-
-                }
-            });
+            BleManager.getInstance().notify(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", notifyCallback);
+//            AsyncTask.execute(new Runnable() {
+//                @Override
+//                public void run() {
+//                    new Timer().scheduleAtFixedRate(new TimerTask() {
+//                        @Override
+//                        public void run() {
+//                            //BleManager.getInstance().read(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8", readCallback);
+//                          //  BleManager.getInstance().notify(device, "4fafc201-1fb5-459e-8fcc-c5c9c331914b", "00000000-0000-1000-8000-00805f9b34fb", notifyCallback);
+//                        }
+//                    }, 0, 3000);
+//
+//                }
+//            });
 
             //Map<ServiceInfo, List<CharacteristicInfo>> bleDevices = BleManager.getInstance().getDeviceServices(device);
 
