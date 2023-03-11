@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.kubera.easyble.gatt.bean.CharacteristicInfo;
 import com.kubera.easyble.gatt.bean.ServiceInfo;
 import com.kubera.scanner.adapter.CommonRecyclerViewAdapter;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<List<CharacteristicInfo>> childList = new ArrayList<>();
     public static final UUID SERVICE_LEVEL_UUID = UUID
             .fromString("4fafc201-1fb5-459e-8fcc-c5c9c331914b");
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         Button btnScan = findViewById(R.id.btn_scan);
         rv = findViewById(R.id.rv);
-
+        floatingActionButton = findViewById(R.id.floatWeb);
         btnScan.setOnClickListener(this);
+        floatingActionButton.setOnClickListener(this);
     }
 
     private void initBleManager() {
@@ -116,6 +119,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_scan:
                 scanDevice();
+                break;
+            case R.id.floatWeb:
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
