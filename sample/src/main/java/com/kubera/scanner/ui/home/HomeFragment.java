@@ -76,12 +76,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         modeImage.setBackgroundResource(R.drawable.power);
                     }else if(driveMode.equals("2")){
                         modeImage.setBackgroundResource(R.drawable.quick);
-                    }else if(driveMode.equals("4")){
+                    }else if(driveMode.equals("5")){
                         modeImage.setBackgroundResource(R.drawable.rewind);
                     }else if(driveMode.equals("8")){
                         modeImage.setBackgroundResource(R.drawable.parking);
-                    }else if(driveMode.equals("16")){
-                        modeImage.setBackgroundResource(R.drawable.brake);
+                    }else if(driveMode.equals("9")){
+                        modeImage.setBackgroundResource(R.drawable.parking);
+                    }else if(driveMode.equals("10")){
+                        modeImage.setBackgroundResource(R.drawable.parking);
+                    }else if(driveMode.equals("25")){
+                        modeImage.setBackgroundResource(R.drawable.sidestand);
+                    }else if(driveMode.equals("21")){
+                        modeImage.setBackgroundResource(R.drawable.sidestand);
                     }else {
                         modeImage.setBackgroundResource(R.drawable.eco);
                     }
